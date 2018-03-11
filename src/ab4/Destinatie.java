@@ -1,7 +1,11 @@
 package ab4;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
+import java.util.ListIterator;
 
 public class Destinatie {
 
@@ -10,7 +14,7 @@ public class Destinatie {
 	private float pretMediu;
 	private Date perioadaInceput;
 	private Date perioadaSfarsit;
-	private ArrayList<Activitate> listaActivitati;
+	private static ArrayList<Activitate> listaActivitati;
 	
 	public Destinatie(String nume, String oras, float pretMediu, ArrayList<Activitate> listaActivitati , 
 						Date perioadaInceput, Date perioadaSfarsit){
@@ -72,12 +76,6 @@ public class Destinatie {
 		return this.perioadaSfarsit;
 	}
 	
-	public void afiseazaActivitati() {
-		for(Activitate a : listaActivitati) {
-			System.out.println(a.getNumeActivitate());
-		}
-	}
-	
 	
 	public void afiseazaDestinatie() {
 		System.out.println( "Destinatie [nume=" + nume + ", oras=" + oras + ", pretMediu=" + pretMediu + ", perioadaInceput="
@@ -88,4 +86,20 @@ public class Destinatie {
 		}
 		System.out.println("]");
 	}
+	
+	public static void afiseazaActivitate10zile(ArrayList<Destinatie> destinatii) {
+		for(Destinatie d : destinatii) {
+			ArrayList<Activitate> listaAct = d.getListaActivitati();
+			
+			ArrayList<Float> listaPreturi = new ArrayList<>();
+			for(Activitate a : listaActivitati) {
+				listaPreturi.add(a.getPret());
+			}
+			
+			Float pretMin = Collections.min(listaPreturi);
+		Activitate a =  (Activitate) Activitate.findActivitateByPretMin(listaAct, pretMin);
+		System.out.println(a.getNumeActivitate() + "sadsadsa");
+		}		
+	}
 }
+
