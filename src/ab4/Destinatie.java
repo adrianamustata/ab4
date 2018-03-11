@@ -88,16 +88,16 @@ public class Destinatie {
 	}
 	
 	public static void afiseazaActivitate10zile(ArrayList<Destinatie> destinatii) {
-		for(Destinatie d : destinatii) {
-			ArrayList<Activitate> listaAct = d.getListaActivitati();
+		for(Destinatie d : destinatii) {   //Parcurg toate destinatiile 
+			ArrayList<Activitate> listaAct = d.getListaActivitati();  //Iau lista de activitati de la o destinatie
 			
-			ArrayList<Float> listaPreturi = new ArrayList<>();
-			for(Activitate a : listaActivitati) {
+			ArrayList<Float> listaPreturi = new ArrayList<>();  
+			for(Activitate a : listaActivitati) {  //Parcurg lista de activitati si stochez toate preturile intr-o lista de preturi
 				listaPreturi.add(a.getPret());
 			}
 			
-			Float pretMin = Collections.min(listaPreturi);
-		Activitate a =  (Activitate) Activitate.findActivitateByPretMin(listaAct, pretMin);
+			Float pretMin = Collections.min(listaPreturi);   //Calculez pretul minim din lista de preturi
+		Activitate a =  (Activitate) Activitate.findActivitateByPretMin(listaAct, pretMin);  //Afisez activitatea care are pretul minim calculat mai sus
 		System.out.println(a.getNumeActivitate() + "sadsadsa");
 		}		
 	}
