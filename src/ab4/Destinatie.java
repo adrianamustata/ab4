@@ -10,8 +10,7 @@ public class Destinatie {
 	private float pretMediu;
 	private Date perioadaInceput;
 	private Date perioadaSfarsit;
-	
-	ArrayList<Activitate> listaActivitati;
+	private ArrayList<Activitate> listaActivitati;
 	
 	public Destinatie(String nume, String oras, float pretMediu, ArrayList<Activitate> listaActivitati , 
 						Date perioadaInceput, Date perioadaSfarsit){
@@ -73,4 +72,20 @@ public class Destinatie {
 		return this.perioadaSfarsit;
 	}
 	
+	public void afiseazaActivitati() {
+		for(Activitate a : listaActivitati) {
+			System.out.println(a.getNumeActivitate());
+		}
+	}
+	
+	
+	public void afiseazaDestinatie() {
+		System.out.println( "Destinatie [nume=" + nume + ", oras=" + oras + ", pretMediu=" + pretMediu + ", perioadaInceput="
+				+ perioadaInceput + ", perioadaSfarsit=" + perioadaSfarsit + ", listaActivitati=");
+		
+		for(Activitate a : listaActivitati) {
+			System.out.print(a.getNumeActivitate() +" ");
+		}
+		System.out.println("]");
+	}
 }

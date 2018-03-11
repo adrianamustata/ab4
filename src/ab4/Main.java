@@ -3,6 +3,7 @@ package ab4;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -35,6 +36,31 @@ public class Main {
 		Destinatie d3 = new Destinatie("Mamaia", "Constanta", 150, listaActivitati, dateformat.parse(strdate5), dateformat.parse(strdate6));
 		Destinatie d4 = new Destinatie("Poiana Brasov", "Brasov", 100, listaActivitati, dateformat.parse(strdate7), dateformat.parse(strdate8));
 		Destinatie d5 = new Destinatie("Delta Dunarii", "Tulcea", 80, listaActivitati, dateformat.parse(strdate9), dateformat.parse(strdate10));
+		
+		List<Destinatie> destinatii = new ArrayList<>();
+		destinatii.add(d1);
+		destinatii.add(d2);
+		destinatii.add(d3);
+		destinatii.add(d4);
+		destinatii.add(d4);
+		
+		TreeNode root = new TreeNode("root");
+        TreeNode tara = root.addChild("Romania");
+        TreeNode oras1 = tara.addChild("Bucuresti"); // lui romania ii adaugam judetul bucuresti
+        	oras1.addChild("Bucuresti");	// la jud bucuresti ii adaugam un copil si anume orasul bucuresti
+    	TreeNode oras2 = tara.addChild("Sibiu"); // tarii romania ii adaugam judetul sibiu
+    		oras2.addChild("Sibiu");	//caruia ii adaugam si lui copiul orasul sibiu
+		TreeNode oras3 = tara.addChild("Constanta");	
+			oras3.addChild("Mamaia");
+		TreeNode oras4 = tara.addChild("Brasov");	
+			oras4.addChild("Poiana Brasov");
+		TreeNode oras5 = tara.addChild("Tulcea");	
+			oras4.addChild("Delta Dunarii");
+    		
+
+        root.printTree(root);
+        
+        d1.afiseazaDestinatie();
 	}
 
 }
